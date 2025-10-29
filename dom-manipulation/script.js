@@ -10,7 +10,6 @@ let quotes = [
 const quoteDisplay = document.getElementById("quoteDisplay");
 const categorySelect = document.getElementById("categorySelect");
 const newQuoteBtn = document.getElementById("newQuote");
-const addQuoteBtn = document.getElementById("addQuoteBtn");
 
 // --- Helper Functions ---
 
@@ -60,10 +59,48 @@ function addQuote() {
   alert("Quote added successfully!");
 }
 
+// 4. Dynamically create the Add Quote Form
+function createAddQuoteForm() {
+  const formContainer = document.createElement("div");
+  formContainer.id = "addQuoteForm";
+  formContainer.style.marginTop = "20px";
+
+  const heading = document.createElement("h3");
+  heading.textContent = "Add a New Quote";
+  formContainer.appendChild(heading);
+
+  // Quote input
+  const quoteInput = document.createElement("input");
+  quoteInput.type = "text";
+  quoteInput.id = "newQuoteText";
+  quoteInput.placeholder = "Enter a new quote";
+  quoteInput.style.margin = "5px";
+  formContainer.appendChild(quoteInput);
+
+  // Category input
+  const categoryInput = document.createElement("input");
+  categoryInput.type = "text";
+  categoryInput.id = "newQuoteCategory";
+  categoryInput.placeholder = "Enter quote category";
+  categoryInput.style.margin = "5px";
+  formContainer.appendChild(categoryInput);
+
+  // Add button
+  const addButton = document.createElement("button");
+  addButton.textContent = "Add Quote";
+  addButton.id = "addQuoteBtn";
+  addButton.style.margin = "5px";
+  addButton.addEventListener("click", addQuote);
+  formContainer.appendChild(addButton);
+
+  // Append form to the body (or below the quote section)
+  document.body.appendChild(formContainer);
+}
+
 // --- Event Listeners ---
 newQuoteBtn.addEventListener("click", showRandomQuote);
-addQuoteBtn.addEventListener("click", addQuote);
 
 // Initialize page
 populateCategories();
 showRandomQuote();
+createAddQuoteForm(); // <-- dynamically create the Add Quote form
