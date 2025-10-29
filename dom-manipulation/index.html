@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dynamic Quote Generator with Filter</title>
- 
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dynamic Quote Generator — Sync Demo</title>
 </head>
 <body>
-  <h1>Dynamic Quote Generator</h1>
+  <h1>Dynamic Quote Generator — Sync Demo</h1>
 
   <!-- Category Filter -->
   <div>
     <label for="categoryFilter">Filter by Category:</label>
     <select id="categoryFilter">
       <option value="all">All Categories</option>
-      <!-- Populated dynamically -->
     </select>
   </div>
 
@@ -22,7 +20,9 @@
   <div id="quoteDisplay"></div>
 
   <!-- Buttons -->
-  <button id="newQuote">Show New Quote</button>
+  <div>
+    <button id="newQuote">Show New Quote</button>
+  </div>
 
   <!-- Add New Quote Section -->
   <h3>Add a New Quote</h3>
@@ -37,6 +37,24 @@
   <div>
     <button id="exportQuotesBtn">Export Quotes (JSON)</button>
     <input type="file" id="importFile" accept=".json" />
+  </div>
+
+  <!-- Sync panel -->
+  <div id="syncPanel">
+    <button id="syncNowBtn">Sync Now</button>
+    <button id="toggleAutoSyncBtn" class="secondary">Auto Sync: OFF</button>
+    <div id="syncStatus">Last sync: —</div>
+  </div>
+
+  <!-- Conflict panel (hidden until conflicts exist) -->
+  <div id="conflictPanel">
+    <strong>Sync conflicts detected</strong>
+    <p class="small">Server changes collided with local edits. Choose which version to keep or accept server-first auto-resolution.</p>
+    <div id="conflictList"></div>
+    <div style="text-align:right; margin-top:8px;">
+      <button id="applyAllServerBtn">Accept All Server Versions</button>
+      <button id="openManualResolveBtn" class="secondary">Resolve Manually</button>
+    </div>
   </div>
 
   <script src="script.js"></script>
