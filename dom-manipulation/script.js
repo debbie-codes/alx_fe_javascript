@@ -288,8 +288,14 @@ async function syncNow() {
   await pushLocalNewQuotesToServer(localOnly);
   setLastSyncAt(nowISO());
   setSyncStatus("Synced");
+
+  // ✅ Added message to meet correction requirement
+  showTemporaryMessage("Quotes synced with server!");
+  console.log("Quotes synced with server!");
+
   return { conflicts, newServer };
 }
+
 
 // ----------------- Conflict UI -----------------
 function presentConflicts(conflicts) {
