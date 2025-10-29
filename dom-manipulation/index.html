@@ -3,25 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dynamic Quote Generator</title>
+  <title>Dynamic Quote Generator with Filter</title>
  
 </head>
 <body>
   <h1>Dynamic Quote Generator</h1>
 
-  <!-- Category Selector -->
+  <!-- Category Filter -->
   <div>
-    <label for="categorySelect">Select Category:</label>
-    <select id="categorySelect"></select>
+    <label for="categoryFilter">Filter by Category:</label>
+    <select id="categoryFilter">
+      <option value="all">All Categories</option>
+      <!-- Populated dynamically -->
+    </select>
   </div>
 
   <!-- Quote Display -->
   <div id="quoteDisplay"></div>
 
-  <!-- Show Quote Button -->
+  <!-- Buttons -->
   <button id="newQuote">Show New Quote</button>
 
-  <!-- Add New Quote Form -->
+  <!-- Add New Quote Section -->
   <h3>Add a New Quote</h3>
   <div>
     <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
@@ -29,11 +32,10 @@
     <button id="addQuoteBtn">Add Quote</button>
   </div>
 
-  <!-- Export / Import JSON Buttons -->
+  <!-- Import / Export -->
   <h3>Manage Quotes (JSON)</h3>
   <div>
     <button id="exportQuotesBtn">Export Quotes (JSON)</button>
-    <label for="importFile">Import JSON:</label>
     <input type="file" id="importFile" accept=".json" />
   </div>
 
